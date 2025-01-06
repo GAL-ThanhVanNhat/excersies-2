@@ -13,7 +13,7 @@ def get_average_confidence(file_path) -> float:
             confidence_array.append(confidence)
         
     result = sum(confidence_array)/len(confidence_array)
-    
+    file.close()
     return result
     
 result = get_average_confidence(FILE_PATH)

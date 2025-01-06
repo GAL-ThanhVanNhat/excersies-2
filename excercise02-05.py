@@ -15,7 +15,7 @@ def count_messages_by_hour(file_path) -> dict:
                 result[hour] = 1
             else:
                 result[hour] += 1
-                
+    file.close()                    
     return result
             
 result = sorted(count_messages_by_hour(FILE_PATH).items())       

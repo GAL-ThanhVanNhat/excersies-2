@@ -13,7 +13,7 @@ def get_unique_words(file_path) -> list:
                 result.append(word)
 
     result.sort()
-    
+    file.close()
     return result
 
 result = get_unique_words(FILE_PATH)

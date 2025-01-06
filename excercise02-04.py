@@ -15,7 +15,7 @@ def count_messages(file_path) -> dict:
                 result[email] = 1
             else:
                 result[email] += 1
-               
+    file.close()
     return result
 
 result = count_messages(FILE_PATH)
