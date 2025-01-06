@@ -1,10 +1,11 @@
 FILE_PATH = "mbox-short.txt"
+KEY = "From "
 
 file = open(FILE_PATH, 'r')
 result = {}
 
 for line in file:
-    if not line.startswith("From "):
+    if not line.startswith(KEY):
        continue
     else:
         words = line.split(":")
