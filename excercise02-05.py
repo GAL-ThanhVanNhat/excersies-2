@@ -1,20 +1,22 @@
 FILE_PATH = "mbox-short.txt"
 KEY = "From "
 
-file = open(FILE_PATH, 'r')
-result = {}
+def count_messages_by_hour(file_path) -> dict:
+    file = open(file_path, 'r')
+    result = {}
 
-for line in file:
-    if not line.startswith(KEY):
-       continue
-    else:
-        words = line.split(":")
-        #print(words)
-        hour = words[0][-2:]
-        if hour not in result:
-            result[hour] = 1
+    for line in file:
+        if not line.startswith(KEY):
+           continue
         else:
-            result[hour] += 1
+            words = line.split(":")
+            hour = words[0][-2:]
+            if hour not in result:
+                result[hour] = 1
+            else:
+                result[hour] += 1
+                
+    return result
             
-result = sorted(result.items())       
+result = sorted(count_messages_by_hour(FILE_PATH).items())       
 print(result)

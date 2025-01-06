@@ -1,15 +1,20 @@
 KEY = "X-DSPAM-Confidence:"
 FILE_PATH = "mbox.txt"
 
-file =  open(FILE_PATH, 'r')
-confidence_array = []
+def get_average_confidence(file_path) -> float:
+    file =  open(file_path, 'r')
+    confidence_array = []
 
-for line in file:
-    if not line.startswith(KEY):
-        continue
-    else:
-        confidence = float(line.split(':')[1].strip())
-        confidence_array.append(confidence)
+    for line in file:
+        if not line.startswith(KEY):
+            continue
+        else:
+            confidence = float(line.split(':')[1].strip())
+            confidence_array.append(confidence)
+        
+    result = sum(confidence_array)/len(confidence_array)
     
-result = sum(confidence_array)/len(confidence_array)
+    return result
+    
+result = get_average_confidence(FILE_PATH)
 print(result)

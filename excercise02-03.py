@@ -1,15 +1,21 @@
 FILE_PATH = "romeo.txt"
 
-file = open(FILE_PATH, 'r')
-result = []
+def get_unique_words(file_path) -> list:
+    file = open(file_path, 'r')
+    result = []
 
-for line in file:
-    words = line.split()
-    for word in words:
-        if word in result:
-            continue
-        else:
-            result.append(word)
+    for line in file:
+        words = line.split()
+        for word in words:
+            if word in result:
+                continue
+            else:
+                result.append(word)
 
-result.sort()
+    result.sort()
+    
+    return result
+
+result = get_unique_words(FILE_PATH)
+
 print(result)
