@@ -6,10 +6,10 @@ result = []
 for line in file:
     words = line.split()
     for word in words:
-        if word not in result:
-            result.append(word)
-        else:
+        if word in result:
             continue
+        else:
+            result.append(word)
 
 result.sort()
 print(result)
